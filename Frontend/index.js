@@ -96,7 +96,7 @@ function displayShoeSidebar(shoe) {
 
 function postCall(shoe, text) {
   console.log("postcall fires");
-  let textContent = text.comments;
+  let textContent = text.value;
 
   let ul2 = document.getElementById("reviews-list");
   let li2 = document.createElement("li");
@@ -106,7 +106,7 @@ function postCall(shoe, text) {
 
   fetch(`${getURL}/${shoe.id}/reviews`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ content: textContent })
   })
     .then(res => res.json())
